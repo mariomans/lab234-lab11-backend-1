@@ -45,6 +45,9 @@ public class StudentServiceImpl implements StudentService {
             total += student.getGpa();
 
         }
+        if(studentDao.findAll().size()==0){
+            throw new ArithmeticException();
+        }
         return total/this.studentDao.findAll().size();
     }
 }
